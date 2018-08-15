@@ -94,7 +94,7 @@ sudo rpm -ivh go-ozzo-handlers-M.m.P-I.x86_64.rpm
 
 ##### RPM Update
 
-Example: 
+Example:
 
 ```console
 sudo rpm -Uvh go-ozzo-handlers-M.m.P-I.x86_64.rpm
