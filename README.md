@@ -1,5 +1,9 @@
 # go-ozzo-handlers
 
+## Warning
+
+This is exemplar code only.  It does not build.
+
 Build `go-ozzo-handlers-M.m.P-I.x86_64.rpm`
 and   `go-ozzo-handlers_M.m.P-I_amd64.deb`
 where "M.m.P-I" is Major.minor.Patch-Iteration.
@@ -53,7 +57,7 @@ make dependencies
 
 ```console
 cd ${REPOSITORY_DIR}
-make build-local
+make
 ```
 
 The results will be in the `${GOPATH}/bin` directory.

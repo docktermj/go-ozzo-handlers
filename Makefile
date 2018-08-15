@@ -1,3 +1,5 @@
+# Makefile that builds a "go" program.
+
 # PROGRAM_NAME is the name of the GIT repository.
 PROGRAM_NAME := $(shell basename `git rev-parse --show-toplevel`)
 TARGET_DIRECTORY := ./target
@@ -5,7 +7,7 @@ DOCKER_CONTAINER_NAME := $(PROGRAM_NAME)
 DOCKER_IMAGE_NAME := local/$(PROGRAM_NAME)
 BUILD_VERSION := $(shell git describe --always --tags --abbrev=0 --dirty)
 BUILD_TAG := $(shell git describe --always --tags --abbrev=0)
-BUILD_ITERATION := $(shell git log $(BUILD_TAG)..HEAD --oneline | wc -l)
+BUILD_ITERATION := $(shell git log $(BUILD_TAG)..HEAD --oneline | wc -l | sed -e 's/^[ \t]*//')
 
 
 # The first "make" target runs as default.
@@ -64,7 +66,8 @@ docker-run:
 
 .PHONY: dependencies
 dependencies:
-	go get -u github.com/jstemmer/go-junit-report
+	go get -u github.com/golang/dep/cmd/dep
+	dep ensure
 
 
 .PHONY: clean
